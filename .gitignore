@@ -23,5 +23,8 @@ hs_err_pid*
 
 # IntelliJ files#
 *.iml
-Playfair-Cipher/.idea/
+*.idea/
+
+# Mac #
+*.DS_Store
 
