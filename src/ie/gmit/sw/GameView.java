@@ -1,13 +1,13 @@
 package ie.gmit.sw;
 
+import ie.gmit.sw.sprites.Sprite;
+import ie.gmit.sw.sprites.SpriteFactory;
+
 import java.awt.*;
 import java.awt.event.*;
 import java.awt.image.*;
 import javax.swing.*;
 import javax.swing.Timer;
-import javax.imageio.*;
-import java.io.*;
-import java.util.*;
 
 /*
  * This is a God class and is doing way too much. The instance variables cover everything from isometric to 
@@ -51,7 +51,8 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		BufferedImgReader imgReader = (BufferedImgReader) BufferedImgReader.getInstance();
 		tiles = imgReader.loadBufferedImages("./resources/images/ground", tiles);
 		objects = imgReader.loadBufferedImages("./resources/images/objects", objects);
-		player = new Sprite("Player 1", new Point(0, 0), imgReader.loadBufferedImages("./resources/images/sprites/default", null));
+		//player = new Sprite("Player 1", new Point(0, 0), imgReader.loadBufferedImages("./resources/images/sprites/default", null));
+		player = SpriteFactory.getDefault("Player 1", new Point(0, 0));
 	}
 
 
