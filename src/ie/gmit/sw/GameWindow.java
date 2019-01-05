@@ -1,11 +1,14 @@
 package ie.gmit.sw;
 
+import ie.gmit.sw.GameViewModels.GameViewModel;
+import ie.gmit.sw.GameViewModels.GameViewModelFactory;
+
 import java.awt.*;
 import javax.swing.*;
 public class GameWindow {
 	// get one GameviewModel
-	GameViewModel gameViewModel = GameWindowFactory.createGameViewTwo();
-	// GameViewModel gameViewModel2 = GameWindowFactory.createGameViewOne(); // get another model
+	GameViewModel gameViewModel = GameViewModelFactory.createGameViewTwo();
+	// GameViewModel gameViewModel2 = GameViewModelFactory.createGameViewOne(); // get another model
 
 	
 	public GameWindow() throws Exception {

@@ -1,9 +1,9 @@
-package ie.gmit.sw;
+package ie.gmit.sw.GameViewModels;
 /*
  * factory design pattern
  * return different gameWindow
  */
-public class GameWindowFactory {
+public class GameViewModelFactory {
 
     public static GameViewModel createGameViewOne() {
         return GameViewModelOne.getInstance();
