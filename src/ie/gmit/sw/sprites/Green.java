@@ -5,14 +5,14 @@ import ie.gmit.sw.Point;
 /*
  * concrete sprite
  */
-public class Default extends Sprite {
-    public Default(String name, Point p) {
+public class Green extends Sprite{
+
+    public Green(String name, Point p) {
         super(name, p);
         try {
-            super.setImages("default");
+            super.setImages("green");
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
-
 }

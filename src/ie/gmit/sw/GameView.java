@@ -53,6 +53,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		objects = imgReader.loadBufferedImages("./resources/images/objects", objects);
 		//player = new Sprite("Player 1", new Point(0, 0), imgReader.loadBufferedImages("./resources/images/sprites/default", null));
 		player = SpriteFactory.getDefault("Player 1", new Point(0, 0));
+		//player = SpriteFactory.getGreen("Player 1", new Point(0, 0));
 	}
 
 

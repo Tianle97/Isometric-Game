@@ -10,4 +10,9 @@ public class SpriteFactory {
         Sprite sprite = new Default(name, p);
         return sprite;
     }
+
+    public static Sprite getGreen (String name, Point p) {
+        Sprite sprite = new Green(name, p);
+        return sprite;
+    }
 }

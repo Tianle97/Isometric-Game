@@ -11,6 +11,7 @@ package ie.gmit.sw.sprites;
  * 
  */
 
+import ie.gmit.sw.BufferedImgReader;
 import ie.gmit.sw.Direction;
 import ie.gmit.sw.Point;
 
@@ -21,15 +22,20 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 	public Direction direction = Direction.DOWN; //The current orientation of the sprite
 	public int index = 0; //The current image index.
 	public Point position; //The current x, y position
+	private BufferedImgReader imgReader = (BufferedImgReader) BufferedImgReader.getInstance();
 	
 	public Sprite(String name, Point p) {
 		super();
 		this.name = name;
 		this.position = p;
 	}
-	
-	public Sprite(String name, Point p, BufferedImage[] img) {
-		this(name, p);
+
+	public void setImages (BufferedImage[][] img){
+		this.images = img;
+	}
+
+	public void setImages (String type) throws Exception{
+		BufferedImage[] img = imgReader.loadBufferedImages("./resources/images/sprites/"+type, null);
 		int row = 0, col = 0;
 		for (int i = 0; i < img.length; i++) {
 			images[row][col] = img[i];
@@ -40,10 +46,6 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 				col++;
 			}
 		}
-	}
-
-	public void setImages (BufferedImage[][] img){
-		this.images = img;
 	}
 	
 	public String getName() {
