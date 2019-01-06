@@ -15,4 +15,14 @@ public class SpriteFactory {
         Sprite sprite = new Green(name, p);
         return sprite;
     }
+
+    public static Sprite getKnight (String name, Point p) {
+        Sprite sprite = new Knight(name, p);
+        return sprite;
+    }
+
+    public static Sprite getPerson (String name, Point p) {
+        Sprite sprite = new Person(name, p);
+        return sprite;
+    }
 }
