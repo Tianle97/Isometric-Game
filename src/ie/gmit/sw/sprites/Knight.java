@@ -1,5 +1,6 @@
 package ie.gmit.sw.sprites;
 
+import ie.gmit.sw.models.GameAttr;
 import ie.gmit.sw.models.Point;
 
 /*
@@ -7,8 +8,8 @@ import ie.gmit.sw.models.Point;
  */
 public class Knight extends Sprite{
 
-    public Knight(String name, Point p) {
-        super(name, p);
+    public Knight(String name, Point p, GameAttr gameAttr) {
+        super(name, p, gameAttr);
         try {
             super.setImages("knight");
         } catch (Exception e) {

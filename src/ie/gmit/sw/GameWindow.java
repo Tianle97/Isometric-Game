@@ -138,6 +138,7 @@ public class GameWindow {
 			case 2:
 				gameViewModel = GameViewModelFactory.createGameViewTwo(); break;
 			default:
+				gameAttr.setGameLevel(1);
 				gameViewModel = GameViewModelFactory.createGameViewOne();
 		}
 
@@ -146,19 +147,20 @@ public class GameWindow {
 		//set player (sprite)
 		switch (gameAttr.getGameSprite()){
 			case 0:
-				view.setPlayer(SpriteFactory.getDefault("Player 1", new ie.gmit.sw.models.Point(0, 0)));
+				view.setPlayer(SpriteFactory.getDefault("Player 1", new ie.gmit.sw.models.Point(0, 0), gameAttr));
 				break;
 			case 1:
-				view.setPlayer(SpriteFactory.getKnight("Player 1", new ie.gmit.sw.models.Point(0, 0)));
+				view.setPlayer(SpriteFactory.getKnight("Player 1", new ie.gmit.sw.models.Point(0, 0), gameAttr));
 				break;
 			case 2:
-				view.setPlayer(SpriteFactory.getGreen("Player 1", new ie.gmit.sw.models.Point(0, 0)));
+				view.setPlayer(SpriteFactory.getGreen("Player 1", new ie.gmit.sw.models.Point(0, 0), gameAttr));
 				break;
 			case 3:
-				view.setPlayer(SpriteFactory.getPerson("Player 1", new ie.gmit.sw.models.Point(0, 0)));
+				view.setPlayer(SpriteFactory.getPerson("Player 1", new ie.gmit.sw.models.Point(0, 0), gameAttr));
 				break;
 			default:
-				view.setPlayer(SpriteFactory.getDefault("Player 1", new ie.gmit.sw.models.Point(0, 0)));
+				view.setPlayer(SpriteFactory.getDefault("Player 1", new ie.gmit.sw.models.Point(0, 0), gameAttr));
+				gameAttr.setGameSprite(0);
 
 
 		}

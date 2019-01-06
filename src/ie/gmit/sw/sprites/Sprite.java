@@ -11,23 +11,33 @@ package ie.gmit.sw.sprites;
  * 
  */
 
+import ie.gmit.sw.GameWindow;
+import ie.gmit.sw.gameLogic.GameLogic;
+import ie.gmit.sw.gameLogic.LifeControl;
 import ie.gmit.sw.imageReader.BufferedImgReader;
 import ie.gmit.sw.models.Direction;
+import ie.gmit.sw.models.GameAttr;
 import ie.gmit.sw.models.Point;
 
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.*;
 public class Sprite { //Sprite belongs in some sort of hierarchy....
-	public String name; //The name of the sprite
-	public BufferedImage[][] images = new BufferedImage[4][3]; //The images used in the animation
-	public Direction direction = Direction.DOWN; //The current orientation of the sprite
-	public int index = 0; //The current image index.
-	public Point position; //The current x, y position
+	private String name; //The name of the sprite
+	private BufferedImage[][] images = new BufferedImage[4][3]; //The images used in the animation
+	private Direction direction = Direction.DOWN; //The current orientation of the sprite
+	private int index = 0; //The current image index.
+	private Point position; //The current x, y position
 	private BufferedImgReader imgReader = (BufferedImgReader) BufferedImgReader.getInstance();
+	private GameAttr gameAttr;
 	
-	public Sprite(String name, Point p) {
+	public Sprite(String name, Point p, GameAttr gameAttr) {
 		super();
 		this.name = name;
 		this.position = p;
+		this.gameAttr = gameAttr;
 	}
 
 	public void setImages (BufferedImage[][] img){
@@ -59,7 +69,15 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 	public BufferedImage getImage() {
 		return images[direction.getOrientation()][index];
 	}
-	
+
+	public void setGameAttr(GameAttr gameAttr) {
+		this.gameAttr = gameAttr;
+	}
+
+	public GameAttr getGameAttr() {
+		return gameAttr;
+	}
+
 	public BufferedImage step(Direction d) {
 		setDirection(d);
 		if (index < images[direction.getOrientation()].length - 1) {
@@ -103,5 +121,38 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 				position.setY(posY - 1); //RIGHT
 			break;
 		}
+		checkWin();
 	}
+
+	public void checkWin(){
+		LifeControl lifeControl = new LifeControl();
+		if (lifeControl.triggetWin(gameAttr,position)){
+			gameWin();
+		}
+	}
+
+	public void gameWin(){
+		JFrame f = new JFrame("GMIT - B.Sc. in Computing (Software Development)");
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		f.getContentPane().setLayout(new FlowLayout());
+		JLabel label = new JLabel("you Win !");
+		JButton button = new JButton("restart");
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				try {
+					new GameWindow();
+				} catch (Exception e1) {
+					e1.printStackTrace();
+				}
+			}
+		});
+		f.add(label);
+		f.add(button);
+		f.setSize(300, 300);
+		f.setLocation(100, 100);
+		f.pack();
+		f.setVisible(true);
+	}
+
 }
