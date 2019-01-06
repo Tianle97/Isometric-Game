@@ -11,7 +11,7 @@ package ie.gmit.sw.sprites;
  * 
  */
 
-import ie.gmit.sw.BufferedImgReader;
+import ie.gmit.sw.imageReader.BufferedImgReader;
 import ie.gmit.sw.Direction;
 import ie.gmit.sw.Point;
 

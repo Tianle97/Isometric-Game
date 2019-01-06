@@ -1,4 +1,4 @@
-package ie.gmit.sw;
+package ie.gmit.sw.imageReader;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

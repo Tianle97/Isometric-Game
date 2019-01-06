@@ -1,5 +1,6 @@
 package ie.gmit.sw;
 
+import ie.gmit.sw.imageReader.BufferedImgReader;
 import ie.gmit.sw.sprites.Sprite;
 import ie.gmit.sw.sprites.SpriteFactory;
 
