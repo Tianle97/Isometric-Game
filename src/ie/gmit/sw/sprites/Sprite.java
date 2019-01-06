@@ -12,8 +12,8 @@ package ie.gmit.sw.sprites;
  */
 
 import ie.gmit.sw.imageReader.BufferedImgReader;
-import ie.gmit.sw.Direction;
-import ie.gmit.sw.Point;
+import ie.gmit.sw.models.Direction;
+import ie.gmit.sw.models.Point;
 
 import java.awt.image.*;
 public class Sprite { //Sprite belongs in some sort of hierarchy....

@@ -1,6 +1,8 @@
 package ie.gmit.sw;
 
 import ie.gmit.sw.imageReader.BufferedImgReader;
+import ie.gmit.sw.models.Direction;
+import ie.gmit.sw.models.Point;
 import ie.gmit.sw.sprites.Sprite;
 import ie.gmit.sw.sprites.SpriteFactory;
 
@@ -52,7 +54,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		BufferedImgReader imgReader = (BufferedImgReader) BufferedImgReader.getInstance();
 		tiles = imgReader.loadBufferedImages("./resources/images/ground", tiles);
 		objects = imgReader.loadBufferedImages("./resources/images/objects", objects);
-		player = SpriteFactory.getDefault("Player 1", new Point(0, 0));
+		player = SpriteFactory.getDefault("Player 1", new ie.gmit.sw.models.Point(0, 0));
 		//player = SpriteFactory.getGreen("Player 1", new Point(0, 0));
 		//player = SpriteFactory.getKnight("Player 1", new Point(0, 0));
 		//player = SpriteFactory.getPerson("Player 1", new Point(0, 0));
@@ -72,7 +74,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		super.paintComponent(g);
 		Graphics2D g2 = (Graphics2D) g;
 		int imageIndex = -1, x1 = 0, y1 = 0;
-		Point point;
+		ie.gmit.sw.models.Point point;
 		
 		for (int row = 0; row < matrix.length; row++) {
 			for (int col = 0; col < matrix[row].length; col++) {
@@ -125,7 +127,7 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	//This method breaks the SRP
-	private Point getIso(int x, int y) {
+	private ie.gmit.sw.models.Point getIso(int x, int y) {
 		return new Point(getIsoX(x, y), getIsoY(x, y)); //Could be more efficient...
 	}
 	

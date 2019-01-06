@@ -1,4 +1,4 @@
-package ie.gmit.sw;
+package ie.gmit.sw.models;
 
 public enum Direction {
 	UP (0), 

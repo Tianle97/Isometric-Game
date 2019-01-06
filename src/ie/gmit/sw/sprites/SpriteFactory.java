@@ -1,6 +1,6 @@
 package ie.gmit.sw.sprites;
 
-import ie.gmit.sw.Point;
+import ie.gmit.sw.models.Point;
 
 /*
  * generate sprites, use factory design pattern
