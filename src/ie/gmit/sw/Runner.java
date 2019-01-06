@@ -17,9 +17,9 @@ public class Runner {
 					 * Toggle View: 'Z'		
 					 * ----------------------------------------
 					 */
-						new GameWindow(); //Could be done nicer?
+					new GameWindow();
 				} catch (Exception e) {
-					e.printStackTrace(); //Real lazy stuff here...
+					e.printStackTrace();
 				}
 			}
 		});
