@@ -121,21 +121,28 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 				position.setY(posY - 1); //RIGHT
 			break;
 		}
-		checkWin();
+		checkLife();
 	}
 
-	public void checkWin(){
+	public void checkLife(){
 		LifeControl lifeControl = new LifeControl();
 		if (lifeControl.triggetWin(gameAttr,position)){
-			gameWin();
+			lifeControl("win");
+		}
+		if (lifeControl.triggetDie(gameAttr,position)){
+			lifeControl("die");
 		}
 	}
 
-	public void gameWin(){
+	public void lifeControl(String s){
 		JFrame f = new JFrame("GMIT - B.Sc. in Computing (Software Development)");
 		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		f.getContentPane().setLayout(new FlowLayout());
-		JLabel label = new JLabel("you Win !");
+		JLabel label = new JLabel();
+		if (s.equals("win"))
+			label.setText("you Win !");
+		else
+			label.setText("you Die !");
 		JButton button = new JButton("restart");
 		button.addActionListener(new ActionListener() {
 			@Override
@@ -154,5 +161,4 @@ public class Sprite { //Sprite belongs in some sort of hierarchy....
 		f.pack();
 		f.setVisible(true);
 	}
-
 }

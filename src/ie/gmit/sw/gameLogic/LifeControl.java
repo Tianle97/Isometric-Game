@@ -21,4 +21,19 @@ public class LifeControl implements GameLogic {
         }
         return false;
     }
+
+    @Override
+    public boolean triggetDie(GameAttr gameAttr, Point point) {
+        switch (gameAttr.getGameLevel()){
+            case 1:
+                if (point.getX() == 9 && point.getY() == 2)  // this point is pre-defined according to the map
+                    return true;
+                break;
+            case 2:
+                if (point.getX() == 6 && point.getY() == 9)
+                    return true;
+                break;
+        }
+        return false;
+    }
 }
