@@ -54,10 +54,6 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 		BufferedImgReader imgReader = (BufferedImgReader) BufferedImgReader.getInstance();
 		tiles = imgReader.loadBufferedImages("./resources/images/ground", tiles);
 		objects = imgReader.loadBufferedImages("./resources/images/objects", objects);
-		player = SpriteFactory.getDefault("Player 1", new ie.gmit.sw.models.Point(0, 0));
-		//player = SpriteFactory.getGreen("Player 1", new Point(0, 0));
-		//player = SpriteFactory.getKnight("Player 1", new Point(0, 0));
-		//player = SpriteFactory.getPerson("Player 1", new Point(0, 0));
 	}
 
 
@@ -154,4 +150,8 @@ public class GameView extends JPanel implements ActionListener, KeyListener {
 	
 	public void keyTyped(KeyEvent e) {
 	} // Ignore
+
+	public void setPlayer(Sprite player) {
+		this.player = player;
+	}
 }

@@ -1,22 +1,22 @@
 package ie.gmit.sw.models;
 
 public class GameAttr {
-    public static String gameLevel;
-    public static String gameSprite;
+    private int gameLevel;
+    private int gameSprite;
 
-    public String getGameLevel() {
+    public int getGameLevel() {
         return gameLevel;
     }
 
-    public void setGameLevel(String gameLevel) {
+    public void setGameLevel(int gameLevel) {
         this.gameLevel = gameLevel;
     }
 
-    public String getGameSprite() {
+    public int getGameSprite() {
         return gameSprite;
     }
 
-    public void setGameSprite(String gameSprite) {
+    public void setGameSprite(int gameSprite) {
         this.gameSprite = gameSprite;
     }
 }
